@@ -1,56 +1,61 @@
 import time
 from math import sqrt
 
-#input Number
+# input Number
 
 print("Enter Number: ")
 N = int(input())
 
-#Program exicution begins
-start_time=time.time()
+# Program exicution begins
+start_time = time.time()
+
 
 def printPrimeUptoN(N):
- 
-    if N==0 or N==1:
+    if N == 0 or N == 1:
         print('Not Prime')
-        return 
+        return
 
-    elif N==2:
+    elif N == 2:
         print(2)
         return
 
-    else:
-        
-        #Low range
+    elif N>2 and N<=1000000:
 
-        if N<100:
-            queue=[]
-            for num in range(2,N+1):
-                for i in range(2,(num//2)+1):
-                    if num%i==0:
+        # Low range
+
+        if N < 100:
+            queue = []
+            for num in range(2, N + 1):
+                for i in range(2, (num // 2) + 1):
+                    if num % i == 0:
                         break
                 else:
                     queue.append(num)
             print(queue)
             return
         else:
-            #High range i.e., N>99
-            #limiting divisor range for memory optimisation
+            # High range i.e., N>99
+            # limiting divisor range for memory optimisation
 
-            limited = N//int(sqrt(N))
-            primes = [2,3,5,7]
-            queue=[]
-            flag=0
-            for num in range(2,N+1):
-                for i in range(2,limited+1):
-                    if num%i==0:
+            queue = [2, 3]
+
+            flag = 0
+            for num in range(5, N + 1):
+                for i in range(2, (num//(int(sqrt(num))))):
+                    if num % i == 0:
                         break
                 else:
                     queue.append(num)
             print(queue)
-            return 
+            return
+    else:
+        time.sleep(5)
+        for i in range(10):
+            print("Aye Pagal Aurat >:( ")
+
+
 printPrimeUptoN(N)
 
-#Program runtime in milliseconds
-end_time=time.time() 
-print('Runtime',round(end_time-start_time,4)*1000,'ms')
+# Program runtime in milliseconds
+end_time = time.time()
+print('Runtime', round(end_time - start_time, 4) * 1000, 'ms')
