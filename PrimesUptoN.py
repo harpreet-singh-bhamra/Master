@@ -58,4 +58,4 @@ printPrimeUptoN(N)
 
 # Program runtime in milliseconds
 end_time = time.time()
-print('Runtime', round(end_time - start_time, 4) * 1000, 'ms')
+print('Runtime', round((end_time - start_time)*1000,4), 'ms')
