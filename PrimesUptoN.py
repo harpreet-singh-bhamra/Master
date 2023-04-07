@@ -37,11 +37,11 @@ def printPrimeUptoN(N):
             # High range i.e., N>99
             # limiting divisor range for memory optimisation
 
-            queue = [2, 3]
-
-            flag = 0
-            for num in range(5, N + 1):
-                for i in range(2, (num//(int(sqrt(num))))):
+            queue = []
+            for num in range(2, N + 1):
+                for i in range(2, int(sqrt(N))):
+                    if num in [2,3,5,7]:
+                        continue
                     if num % i == 0:
                         break
                 else:
@@ -49,9 +49,9 @@ def printPrimeUptoN(N):
             print(queue)
             return
     else:
-        time.sleep(5)
+        time.sleep(1)
         for i in range(10):
-            print("Aye Pagal Aurat >:( ")
+            print("I'm not a supercomputer. Please enter a smaller number")
 
 
 printPrimeUptoN(N)
